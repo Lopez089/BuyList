@@ -1,26 +1,31 @@
+/* eslint-disable react/jsx-props-no-spreading */
 /* eslint-disable no-undef */
 import React from "react";
-import { configure, shallow, ReactWrapper } from "enzyme";
+import { configure, mount } from "enzyme";
 import Adapter from "enzyme-adapter-react-16";
 import ItemArticulo from "./itemArticulo";
 
 configure({ adapter: new Adapter() });
 
-const itemCompraTodo = {
+const itemAllList = {
     Product: "Tomate",
-    State: "State_Compra",
-    type_list: "Lista_Todo",
+    State: "AllList",
 };
 
-// eslint-disable-next-line react/jsx-props-no-spreading
-const wraper = shallow(<ItemArticulo {...itemCompraTodo} />);
-
 describe("type list all", () => {
+    const wraper = mount(<ItemArticulo {...itemAllList} />);
     it("show the product name", () => {
         expect(wraper.find("p").text()).toEqual("Tomate");
     });
-    it("show icon add product at buy list", () => {});
-    it("show icon delete at all list", () => {});
+    it("show icon add product at buy list", () => {
+        expect(wraper.find("div").last().childAt(0).exists(".fa-plus-circle")).toEqual(true);
+    });
+    it("show icon delete at all list", () => {
+        expect(wraper.find("div").first().childAt(0).exists(".fa-trash")).toEqual(true);
+    });
+    it("no puede salir bg oscuro", () => {
+        expect(wraper.exists(".bg-light")).toEqual(false);
+    });
 });
 
 // Lista Todo Add list buy
