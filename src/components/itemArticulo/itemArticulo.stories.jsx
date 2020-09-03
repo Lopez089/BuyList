@@ -2,23 +2,23 @@ import React from "react";
 import { storiesOf } from "@storybook/react";
 import ItemArticulo from "./itemArticulo";
 
-const itemCompraTodo = {
+export const itemAllList = {
     Product: "Tomate",
     State: "AllList",
 };
 
-const itemTodo = {
+export const itemAllListBuyList = {
     Product: "Patata",
-    State: "State_Todo",
+    State: "AllListBuyList",
 };
 
-const itemCompraCompra = {
+export const itemCompraCompra = {
     Product: "Patata",
     State: "State_Compra",
 };
 
 storiesOf("Item Articulos", module)
     .addDecorator((story) => <div style={{ padding: "3rem 15rem" }}>{story()}</div>)
-    .add("All list", () => <ItemArticulo {...itemTodo} />)
-    .add("Lista Compra", () => <ItemArticulo {...itemCompraCompra} />)
-    .add("Lista Todo Compra", () => <ItemArticulo {...itemCompraTodo} />);
+    .add("All list", () => <ItemArticulo {...itemAllList} />)
+    .add("All list buy list", () => <ItemArticulo {...itemAllListBuyList} />)
+    .add("Lista Todo Compra", () => <ItemArticulo {...itemCompraCompra} />);

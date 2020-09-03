@@ -11,9 +11,9 @@ const ItemArticulo = (props) => {
         <>
             <li
                 className={
-                    State === "State_Compra"
-                        ? "bg-light   list-group-item d-flex justify-content-between"
-                        : "list-group-item d-flex justify-content-between"
+                    State === "AllList"
+                        ? "list-group-item d-flex justify-content-between"
+                        : "list-group-item d-flex justify-content-between bg-light"
                 }
             >
                 <div className="mr-3 text-danger ">
@@ -26,9 +26,9 @@ const ItemArticulo = (props) => {
                 <div className="w-100 border-right border-left">
                     <p
                         className={
-                            State === "State_Compra"
-                                ? "mb-0 ml-3 font-weight-light h5 tachado"
-                                : "mb-0 ml-3 font-weight-light h5"
+                            State === "AllList"
+                                ? "mb-0 ml-3 font-weight-light h5"
+                                : "mb-0 ml-3 font-weight-light h5 line-through text-muted"
                         }
                     >
                         {Product}
@@ -36,9 +36,9 @@ const ItemArticulo = (props) => {
                 </div>
                 <div
                     className={
-                        State === "State_Compra"
-                            ? "text-muted d-flex  ml-3 justify-content-end "
-                            : "d-flex  ml-3 justify-content-end text-primary"
+                        State === "AllList"
+                            ? "text-primary d-flex   ml-3 justify-content-end "
+                            : "d-flex ml-3 justify-content-end text-muted"
                     }
                 >
                     {State === "State_Compra" ? null : ( // <FontAwesomeIcon icon={faCheck} />
