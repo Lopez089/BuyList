@@ -4,7 +4,7 @@ import React from "react";
 import { configure, mount } from "enzyme";
 import Adapter from "enzyme-adapter-react-16";
 import ItemArticulo from "./itemArticulo";
-import { itemAllList, itemAllListBuyList } from "./itemArticulo.stories";
+import { itemAllList, itemAllListBuyList, itemBuyList } from "./itemArticulo.stories";
 
 configure({ adapter: new Adapter() });
 
@@ -47,20 +47,29 @@ describe("type all list buy list ", () => {
     it("button add buy list disable color", () => {
         expect(wrapper.find("div").last().exists(".text-muted")).toEqual(true);
     });
+    it("show button add buy list", () => {
+        expect(wrapper.find("div").last().childAt(0).exists(".fa-plus-circle")).toEqual(true);
+    });
 });
-// Lista buy
-//		- apareber butto buy
-//		- aparece button delete lista buy
-//		- iconos no nuted
-// 		- list item no opaca
-//		- text no subrayado
-// 		- texx no mutad
 
 describe("type buy list", () => {
-    it("show button buy", () => {});
-    it("show button delete buy list", () => {});
-    it("button buy do not disabled color", () => {});
-    it("item list do not light", () => {});
-    it("text product do not line through", () => {});
-    it("text product do not color muted", () => {});
+    const wrapper = mount(<ItemArticulo {...itemBuyList} />);
+    it("show button buy", () => {
+        expect(wrapper.find("div").last().childAt(0).exists(".fa-check")).toEqual(true);
+    });
+    it("show button delete buy list", () => {
+        expect(wrapper.find("div").first().childAt(0).exists(".fa-times")).toEqual(true);
+    });
+    it("button buy do not disabled color", () => {
+        expect(wrapper.find("div").last().exists(".text-muted")).toEqual(false);
+    });
+    it("item list do not light", () => {
+        expect(wrapper.exists(".bg-light")).toEqual(false);
+    });
+    it("text product do not line through", () => {
+        expect(wrapper.find("p").exists(".line-through")).toEqual(false);
+    });
+    it("text product do not color muted", () => {
+        expect(wrapper.find("p").exists(".text-muted")).toEqual(false);
+    });
 });

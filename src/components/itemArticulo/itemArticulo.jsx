@@ -11,13 +11,13 @@ const ItemArticulo = (props) => {
         <>
             <li
                 className={
-                    State === "AllList"
-                        ? "list-group-item d-flex justify-content-between"
-                        : "list-group-item d-flex justify-content-between bg-light"
+                    State === "AllListBuyList"
+                        ? "list-group-item d-flex justify-content-between bg-light"
+                        : "list-group-item d-flex justify-content-between "
                 }
             >
                 <div className="mr-3 text-danger ">
-                    {State === "State_Compra" ? (
+                    {State === "buyList" ? (
                         <FontAwesomeIcon icon={faTimes} />
                     ) : (
                         <FontAwesomeIcon icon={faTrash} />
@@ -26,9 +26,9 @@ const ItemArticulo = (props) => {
                 <div className="w-100 border-right border-left">
                     <p
                         className={
-                            State === "AllList"
-                                ? "mb-0 ml-3 font-weight-light h5"
-                                : "mb-0 ml-3 font-weight-light h5 line-through text-muted"
+                            State === "AllListBuyList"
+                                ? "mb-0 ml-3 font-weight-light h5 line-through text-muted"
+                                : "mb-0 ml-3 font-weight-light h5 "
                         }
                     >
                         {Product}
@@ -38,10 +38,14 @@ const ItemArticulo = (props) => {
                     className={
                         State === "AllList"
                             ? "text-primary d-flex   ml-3 justify-content-end "
-                            : "d-flex ml-3 justify-content-end text-muted"
+                            : State === "buyList"
+                            ? "text-primary d-flex ml-3 justify-content-end"
+                            : "text-muted d-flex ml-3 justify-content-end"
                     }
                 >
-                    {State === "State_Compra" ? null : ( // <FontAwesomeIcon icon={faCheck} />
+                    {State === "buyList" ? (
+                        <FontAwesomeIcon icon={faCheck} />
+                    ) : (
                         <FontAwesomeIcon icon={faPlusCircle} />
                     )}
                 </div>

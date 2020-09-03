@@ -12,13 +12,13 @@ export const itemAllListBuyList = {
     State: "AllListBuyList",
 };
 
-export const itemCompraCompra = {
-    Product: "Patata",
-    State: "State_Compra",
+export const itemBuyList = {
+    Product: "Zanahorias",
+    State: "buyList",
 };
 
 storiesOf("Item Articulos", module)
     .addDecorator((story) => <div style={{ padding: "3rem 15rem" }}>{story()}</div>)
     .add("All list", () => <ItemArticulo {...itemAllList} />)
     .add("All list buy list", () => <ItemArticulo {...itemAllListBuyList} />)
-    .add("Lista Todo Compra", () => <ItemArticulo {...itemCompraCompra} />);
+    .add("All buy list", () => <ItemArticulo {...itemBuyList} />);
