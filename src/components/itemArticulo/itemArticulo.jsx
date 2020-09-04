@@ -4,50 +4,40 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrash, faTimes, faPlusCircle, faCheck } from "@fortawesome/free-solid-svg-icons";
 import PropTypes from "prop-types";
 
+const iconAccordingState = (State, iconA, iconB) => {
+    if (State === "buyList") {
+        return <FontAwesomeIcon icon={iconA} />;
+    }
+    return <FontAwesomeIcon icon={iconB} />;
+};
+
 const ItemArticulo = (props) => {
-    // console.log(props);
     const { Product, State } = props;
     return (
         <>
             <li
-                className={
-                    State === "AllListBuyList"
-                        ? "list-group-item d-flex justify-content-between bg-light"
-                        : "list-group-item d-flex justify-content-between "
-                }
+                className={`list-group-item d-flex justify-content-between ${
+                    State === "AllListBuyList" ? "bg-light" : ""
+                }`}
             >
                 <div className="mr-3 text-danger ">
-                    {State === "buyList" ? (
-                        <FontAwesomeIcon icon={faTimes} />
-                    ) : (
-                        <FontAwesomeIcon icon={faTrash} />
-                    )}
+                    {iconAccordingState(State, faTimes, faTrash)}
                 </div>
                 <div className="w-100 border-right border-left">
                     <p
-                        className={
-                            State === "AllListBuyList"
-                                ? "mb-0 ml-3 font-weight-light h5 line-through text-muted"
-                                : "mb-0 ml-3 font-weight-light h5 "
-                        }
+                        className={`mb-0 ml-3 font-weight-light h5 
+                           ${State === "AllListBuyList" ? "line-through text-muted" : ""} 
+                        `}
                     >
                         {Product}
                     </p>
                 </div>
                 <div
-                    className={
-                        State === "AllList"
-                            ? "text-primary d-flex   ml-3 justify-content-end "
-                            : State === "buyList"
-                            ? "text-primary d-flex ml-3 justify-content-end"
-                            : "text-muted d-flex ml-3 justify-content-end"
-                    }
+                    className={`d-flex   ml-3 justify-content-end align-items-center text-primary ${
+                        State === "AllListBuyList" ? "text-muted " : ""
+                    }`}
                 >
-                    {State === "buyList" ? (
-                        <FontAwesomeIcon icon={faCheck} />
-                    ) : (
-                        <FontAwesomeIcon icon={faPlusCircle} />
-                    )}
+                    {iconAccordingState(State, faCheck, faPlusCircle)}
                 </div>
             </li>
         </>

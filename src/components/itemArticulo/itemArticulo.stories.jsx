@@ -19,6 +19,10 @@ export const itemBuyList = {
 
 storiesOf("Item Articulos", module)
     .addDecorator((story) => <div style={{ padding: "3rem 15rem" }}>{story()}</div>)
-    .add("All list", () => <ItemArticulo {...itemAllList} />)
-    .add("All list buy list", () => <ItemArticulo {...itemAllListBuyList} />)
-    .add("All buy list", () => <ItemArticulo {...itemBuyList} />);
+    .add("All list", () => <ItemArticulo Product={itemAllList.Product} State={itemAllList.State} />)
+    .add("All list buy list", () => (
+        <ItemArticulo Product={itemAllListBuyList.Product} State={itemAllListBuyList.State} />
+    ))
+    .add("All buy list", () => (
+        <ItemArticulo Product={itemBuyList.Product} State={itemBuyList.State} />
+    ));
