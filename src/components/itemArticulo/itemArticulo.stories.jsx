@@ -9,7 +9,7 @@ export const itemAllList = {
 
 export const itemAllListBuyList = {
     Product: "Patata",
-    State: "AllListBuyList",
+    State: "buyList",
 };
 
 export const itemBuyList = {
@@ -19,10 +19,16 @@ export const itemBuyList = {
 
 storiesOf("Item Articulos", module)
     .addDecorator((story) => <div style={{ padding: "3rem 15rem" }}>{story()}</div>)
-    .add("All list", () => <ItemArticulo Product={itemAllList.Product} State={itemAllList.State} />)
+    .add("All list", () => (
+        <ItemArticulo typeList="AllList" Product={itemAllList.Product} State={itemAllList.State} />
+    ))
     .add("All list buy list", () => (
-        <ItemArticulo Product={itemAllListBuyList.Product} State={itemAllListBuyList.State} />
+        <ItemArticulo
+            typeList="AllList"
+            Product={itemAllListBuyList.Product}
+            State={itemAllListBuyList.State}
+        />
     ))
     .add("All buy list", () => (
-        <ItemArticulo Product={itemBuyList.Product} State={itemBuyList.State} />
+        <ItemArticulo typeList="BuyList" Product={itemBuyList.Product} State={itemBuyList.State} />
     ));

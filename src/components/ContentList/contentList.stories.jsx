@@ -14,11 +14,11 @@ export const ArticleList = [
     },
     {
         Product: "Patata",
-        State: "AllListBuyList",
+        State: "buyList",
     },
     {
         Product: "pepino",
-        State: "AllListBuyList",
+        State: "buyList",
     },
     {
         Product: "Zanahorias",
@@ -31,5 +31,9 @@ export const ArticleList = [
 ];
 storiesOf("Content List", module)
     .addDecorator((story) => <div style={{ padding: "3rem 15rem" }}>{story()}</div>)
-    .add("All List", () => <ContentList titleList="All List" articleList={ArticleList} />)
-    .add("Buy List", () => <ContentList titleList="jjjh" articleList={ArticleList} />);
+    .add("All List", () => (
+        <ContentList typeList="AllList" titleList="All List" articleList={ArticleList} />
+    ))
+    .add("Buy List", () => (
+        <ContentList typeList="BuyList" titleList="Buy List" articleList={ArticleList} />
+    ));

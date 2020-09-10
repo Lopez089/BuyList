@@ -15,7 +15,9 @@ configure({ adapter: new Adapter() });
 // 		al final aparecen los elentos que estan en la lista buy list
 
 describe("All list", () => {
-    const wrapper = mount(<ContentList titleList="All List" articleList={ArticleList} />);
+    const wrapper = mount(
+        <ContentList typeList="AllList" titleList="All List" articleList={ArticleList} />,
+    );
     it("have a title 'All list'", () => {
         expect(wrapper.find("p").at(0).text()).toEqual("All List");
     });

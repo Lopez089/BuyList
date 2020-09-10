@@ -9,7 +9,9 @@ import { itemAllList, itemAllListBuyList, itemBuyList } from "./itemArticulo.sto
 configure({ adapter: new Adapter() });
 
 describe("type all list", () => {
-    const wrapper = mount(<ItemArticulo {...itemAllList} />);
+    const wrapper = mount(
+        <ItemArticulo typeList="AllList" Product={itemAllList.Product} State={itemAllList.State} />,
+    );
     it("show the product name", () => {
         expect(wrapper.find("p").text()).toEqual("Tomate");
     });
@@ -34,7 +36,13 @@ describe("type all list", () => {
 });
 
 describe("type all list buy list ", () => {
-    const wrapper = mount(<ItemArticulo {...itemAllListBuyList} />);
+    const wrapper = mount(
+        <ItemArticulo
+            typeList="AllList"
+            Product={itemAllListBuyList.Product}
+            State={itemAllListBuyList.State}
+        />,
+    );
     it("show text line through", () => {
         expect(wrapper.find("p").exists(".line-through")).toEqual(true);
     });
@@ -53,7 +61,9 @@ describe("type all list buy list ", () => {
 });
 
 describe("type buy list", () => {
-    const wrapper = mount(<ItemArticulo {...itemBuyList} />);
+    const wrapper = mount(
+        <ItemArticulo typeList="BuyList" Product={itemBuyList.Product} State={itemBuyList.State} />,
+    );
     it("show button buy", () => {
         expect(wrapper.find("div").last().childAt(0).exists(".fa-check")).toEqual(true);
     });
