@@ -7,13 +7,6 @@ import ContentList from "./contentList";
 import { ArticleList } from "./contentList.stories";
 
 configure({ adapter: new Adapter() });
-
-// All list
-//	--	tien un titulo que dice 'Lista Todo'
-//	--	aparecen todos los elementos
-//	--	no aparecen lo elemento que estan en buy con las carcteristicas de buy
-// 		al final aparecen los elentos que estan en la lista buy list
-
 describe("All list", () => {
     const wrapper = mount(
         <ContentList typeList="AllList" titleList="All List" articleList={ArticleList} />,
@@ -30,8 +23,20 @@ describe("All list", () => {
         const nodos = wrapper.find("svg").map((nodo) => nodo.exists(".fa-times"));
         expect(nodos).not.toContain(true);
     });
-    it("", () => {});
-    it("", () => {});
+    it("at the end appear the items that are in the buy list", () => {
+        const lengthFilterArticleBuyList = ArticleList.filter(
+            (article) => article.State === "buyList",
+        ).length;
+        const lengthArticles = ArticleList.length;
+        console.log(lengthArticles - lengthFilterArticleBuyList);
+        // comprobar si mis X ultimos productos tiene el icono que tien que tener
+        const lastArticleList = wrapper
+            .find("li")
+            .slice(lengthArticles - lengthFilterArticleBuyList, lengthArticles);
+        const nodos = lastArticleList.map((nodo) => nodo.exists(".bg-light"));
+        console.log(nodos);
+        expect(nodos).not.toContain(false);
+    });
 });
 // Buy list
 //		tien un titulo que dice 'Lista compra'

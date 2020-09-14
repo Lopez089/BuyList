@@ -1,19 +1,13 @@
 import React from "react";
-import PropTypes from "prop-types";
 
-const Button = (props) => {
-    const { actionAgregar } = props;
+const Button = () => {
     return (
         <>
-            <button className="btn btn-primary" type="button" onClick={() => actionAgregar()}>
+            <button className="btn btn-primary" type="button">
                 Agregar
             </button>
         </>
     );
-};
-
-Button.propTypes = {
-    actionAgregar: PropTypes.func.isRequired,
 };
 
 export default Button;

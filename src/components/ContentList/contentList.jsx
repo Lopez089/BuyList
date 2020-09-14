@@ -4,11 +4,17 @@ import ItemArticulo from "../itemArticulo/itemArticulo";
 
 const ContentList = (props) => {
     const { titleList, articleList, typeList } = props;
+
+    const sortList = articleList.sort((articleCurrent, articleNext) => {
+        console.log(articleCurrent.State);
+        return articleCurrent.State - articleNext.State;
+    });
+    console.table(sortList);
     return (
         <>
             <p>{titleList}</p>
             <ul>
-                {articleList.map((article, i) => {
+                {sortList.map((article, i) => {
                     return (
                         <ItemArticulo
                             key={i}

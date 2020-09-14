@@ -28,6 +28,14 @@ export const ArticleList = [
         Product: "Ajos",
         State: "buyList",
     },
+    {
+        Product: "Azucar",
+        State: "AllList",
+    },
+    {
+        Product: "Lejia",
+        State: "AllList",
+    },
 ];
 storiesOf("Content List", module)
     .addDecorator((story) => <div style={{ padding: "3rem 15rem" }}>{story()}</div>)
