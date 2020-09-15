@@ -6,8 +6,8 @@ import { ArticleList } from "./components/ContentList/contentList.stories";
 function App() {
     return (
         <>
-            <ContentList titleList="Buy List" typeList="buyList" articleList={ArticleList} />
-            <ContentList titleList="All List" typeList="AllList" articleList={ArticleList} />
+            <ContentList titleList="Lista Compra" typeList="BuyList" articleList={ArticleList} />
+            <ContentList titleList="Lista Todo" typeList="AllList" articleList={ArticleList} />
         </>
     );
 }

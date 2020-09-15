@@ -6,10 +6,10 @@ const ContentList = (props) => {
     const { titleList, articleList, typeList } = props;
 
     const sortList = articleList.sort((articleCurrent, articleNext) => {
-        console.log(articleCurrent.State);
+        // console.log(articleCurrent.State);
         return articleCurrent.State - articleNext.State;
     });
-    console.table(sortList);
+    // console.table(sortList);
     return (
         <>
             <p>{titleList}</p>
