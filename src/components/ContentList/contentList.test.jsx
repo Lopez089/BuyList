@@ -38,10 +38,7 @@ describe("All list", () => {
     //     // expect(nodos).not.toContain(false);
     // });
 });
-// Buy list
-//	--	tien un titulo que dice 'Lista compra'
-//		solo aparecen los elemento que etan en la lista buy
-//		tiene que aparecer todos los elementos pero que tien el estado de list buy
+
 describe("Buy List", () => {
     const wrapper = mount(
         <ContentList titleList="Lista Compra" typeList="BuyList" articleList={ArticleList} />,
@@ -49,8 +46,16 @@ describe("Buy List", () => {
     it("have a title Lista Compra", () => {
         expect(wrapper.find("p").at(0).text()).toEqual("Lista Compra");
     });
-    it("", ('alone show the element what is in the Buy list') => {
-		// iterar sobre todos los elemento y que ninguno sea diferente a = 
-	});
-    it("", () => {});
+    it("alone show the element what is in the Buy list", () => {
+        // iterar sobre todos los elemento y que ninguno sea diferente a = svg fa-times
+        const nodos = wrapper
+            .find("div")
+            .filter(".text-danger")
+            .map((nodo) => nodo.find("svg").exists(".fa-times"));
+        expect(nodos).not.toContain(false);
+    });
+    it("Show all product buy list", () => {
+        const buyListSize = ArticleList.filter((article) => article.State === "buyList").length;
+        expect(wrapper.find("li")).toHaveLength(buyListSize);
+    });
 });

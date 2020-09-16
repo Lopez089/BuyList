@@ -10,11 +10,20 @@ const ContentList = (props) => {
         return articleCurrent.State - articleNext.State;
     });
     // console.table(sortList);
+
+    /// logica buy list ///
+    const BuyListFilter = () => {
+        if (typeList === "BuyList") {
+            return articleList.filter((product) => product.State === "buyList");
+        }
+        return sortList;
+    };
+    /// //////////
     return (
         <>
             <p>{titleList}</p>
             <ul>
-                {sortList.map((article, i) => {
+                {BuyListFilter().map((article, i) => {
                     return (
                         <ItemArticulo
                             key={i}
