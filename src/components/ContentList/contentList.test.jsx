@@ -23,20 +23,19 @@ describe("All list", () => {
         const nodos = wrapper.find("svg").map((nodo) => nodo.exists(".fa-times"));
         expect(nodos).not.toContain(true);
     });
-    // it("at the end appear the items that are in the buy list", () => {
-    //     // const lengthFilterArticleBuyList = ArticleList.filter(
-    //     //     (article) => article.State === "buyList",
-    //     // ).length;
-    //     // const lengthArticles = ArticleList.length;
-    //     // console.log(lengthArticles - lengthFilterArticleBuyList);
-    //     // // comprobar si mis X ultimos productos tiene el icono que tien que tener
-    //     // const lastArticleList = wrapper
-    //     //     .find("li")
-    //     //     .slice(lengthArticles - lengthFilterArticleBuyList, lengthArticles);
-    //     // const nodos = lastArticleList.map((nodo) => nodo.exists(".bg-light"));
-    //     // console.log(nodos);
-    //     // expect(nodos).not.toContain(false);
-    // });
+    it("at the end appear the items that are in the buy list", () => {
+        const lengthFilterArticleBuyList = ArticleList.filter(
+            (article) => article.State === "buyList",
+        ).length;
+        const lengthArticles = ArticleList.length;
+        // comprobar si mis X ultimos productos tiene el icono que tien que tener
+        const lastArticleList = wrapper
+            .find("li")
+            .slice(lengthArticles - lengthFilterArticleBuyList, lengthArticles);
+        const nodos = lastArticleList.map((nodo) => nodo.exists(".bg-light"));
+
+        expect(nodos).not.toContain(false);
+    });
 });
 
 describe("Buy List", () => {

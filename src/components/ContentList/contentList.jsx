@@ -5,11 +5,12 @@ import ItemArticulo from "../itemArticulo/itemArticulo";
 const ContentList = (props) => {
     const { titleList, articleList, typeList } = props;
 
-    const sortList = articleList.sort((articleCurrent, articleNext) => {
-        // console.log(articleCurrent.State);
-        return articleCurrent.State - articleNext.State;
+    const sortList = articleList.sort((a, b) => {
+        if (a.State > b.State) {
+            return 1;
+        }
+        return -1;
     });
-    // console.table(sortList);
 
     /// logica buy list ///
     const BuyListFilter = () => {
@@ -21,7 +22,7 @@ const ContentList = (props) => {
     /// //////////
     return (
         <>
-            <p>{titleList}</p>
+            <p className="text-center h5 m-4">{titleList}</p>
             <ul>
                 {BuyListFilter().map((article, i) => {
                     return (
