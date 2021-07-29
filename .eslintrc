@@ -1,24 +1,4 @@
 {
-    "extends": [
-        "airbnb",
-        "prettier",
-        "prettier/react"
-    ],
     "parser": "babel-eslint",
-    "plugins": [
-        "prettier"
-    ],
-    "rules": {
-		"prettier/prettier": "error",
-		"jsx-a11y/label-has-associated-control": [ "error", {
-			"required": {
-			  "some": [ "nesting", "id"  ]
-			}
-		  }],
-		  "jsx-a11y/label-has-for": [ "error", {
-			"required": {
-			  "some": [ "nesting", "id"  ]
-			}
-		  }]
-    }
-}
+    "extends": ["standard", "standard-jsx", "standard-react"]
+  }
