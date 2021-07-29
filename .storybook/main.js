@@ -1,10 +1,17 @@
 module.exports = {
-    stories: ["../src/**/**/*.stories.jsx"],
+    stories: ['../src/components/**/*.stories.@(ts|js)'],
     addons: [
         "@storybook/preset-create-react-app",
-        "@storybook/addon-actions",
-        "@storybook/addon-links",
-        "@storybook/addon-storysource",
-        //"@storybook/addon-docs"
-    ],
-};
+      ],
+    webpackFinal: (config) => {
+      return {
+        ...config,
+        module: {
+          ...config.module,
+        },
+        resolve: {
+          ...config.resolve,
+        }
+      };
+    },
+  };

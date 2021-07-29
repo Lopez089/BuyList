@@ -3,4 +3,5 @@ import ReactDOM from 'react-dom'
 import 'bootstrap/dist/css/bootstrap.css'
 import App from './App.jsx'
 
-ReactDOM.render(<App />, document.getElementById('root'))
+const rootNode = document.getElementById('root')
+ReactDOM.render(<App />, rootNode)
